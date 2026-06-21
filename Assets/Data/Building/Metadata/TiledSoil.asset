@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f00f614d1ca477d9726f7b627f4916f, type: 3}
+  m_Name: TiledSoil
+  m_EditorClassIdentifier: Assembly-CSharp::Data.Metadata.TileMetadata
+  SourceLayer: 1
+  RequiredCapability: 1
+  ResultTile: {fileID: 11400000, guid: cc86f539ab7d64aeda23ffa9cb2a9b28, type: 2}
+  ResultLayer: 2
+  NextState: {fileID: 0}
+  TimeToNextState: -1

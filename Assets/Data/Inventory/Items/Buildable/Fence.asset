@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 698ce5201624f144f93ec73ff97b5015, type: 3}
+  m_Name: Fence
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory.Item.BuildableItemObject
+  Id: 1
+  uiDisplay: {fileID: 7828671994662592261, guid: 1a0b100207bee4028922e55f65e935d2, type: 3}
+  Name: 
+  Description: 
+  MaxStack: 20
+  Category: 8
+  ItemAttributesConfig: []
+  <LinkedPalette>k__BackingField: {fileID: 11400000, guid: 5f3971f9dfaaf4eb3a46abbdd435642e, type: 2}
+  <DefaultTileIndex>k__BackingField: 0

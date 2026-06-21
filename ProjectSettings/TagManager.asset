@@ -2,8 +2,11 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - ship
+  - asteroid
+  - Slot
   layers:
   - Default
   - TransparentFX
@@ -41,3 +44,29 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Back
+    uniqueID: 4205279591
+    locked: 0
+  - name: Ground
+    uniqueID: 1620115553
+    locked: 0
+  - name: Soil
+    uniqueID: 2510675599
+    locked: 0
+  - name: Garden
+    uniqueID: 1117943351
+    locked: 0
+  - name: Fence
+    uniqueID: 2742314069
+    locked: 0
+  - name: Building
+    uniqueID: 3207428655
+    locked: 0
+  - name: Player
+    uniqueID: 381393109
+    locked: 0
+  - name: UI
+    uniqueID: 1331474365
+    locked: 0
+  m_RenderingLayers:
+  - Default

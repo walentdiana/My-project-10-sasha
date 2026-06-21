@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bede43be8511d4ec99b0a9a8c01c027e, type: 3}
+  m_Name: WoodFencePalette
+  m_EditorClassIdentifier: Assembly-CSharp::BuildSystem.BuildPalette
+  Id: 0
+  <PaletteName>k__BackingField: WoodFencePalette
+  <LayerType>k__BackingField: 3
+  <Tiles>k__BackingField:
+  - {fileID: 11400000, guid: 560c16045e39b4f9785fa07e51e19ea7, type: 2}
+  - {fileID: 11400000, guid: 7fd5d9bc0eec548c6aa1f2bc29a67e1b, type: 2}
+  - {fileID: 11400000, guid: 7969892d185644cfdbc88011b3776205, type: 2}
+  - {fileID: 11400000, guid: 03a9fd39436ca44fc8c2ae58af3c4904, type: 2}
+  - {fileID: 11400000, guid: 267d650d425064697a63b1361e7296cd, type: 2}
+  - {fileID: 11400000, guid: f9d64fa91372b4a0ea09d1c559fe00a7, type: 2}
+  - {fileID: 11400000, guid: aac79e03ff4a348288e6eb09280ec317, type: 2}
+  - {fileID: 11400000, guid: dd03d6b0d3fdf475ca57039d3e007e50, type: 2}
+  - {fileID: 11400000, guid: 195e4804e4d04449cb67736e060807bf, type: 2}
+  - {fileID: 11400000, guid: 16431634eb8b1435f8fb460b48f9aaa0, type: 2}
+  - {fileID: 11400000, guid: c42a3df40f77d405b8c168c547ab7eae, type: 2}
+  - {fileID: 11400000, guid: 2669a06b7c9bf4c37ba831d10f617395, type: 2}
+  - {fileID: 11400000, guid: 6f0459ec6313947aba4b5b0a1a6ccb2f, type: 2}
+  - {fileID: 11400000, guid: f9f485ed03c034d97a161c4f2a3eb153, type: 2}
+  - {fileID: 11400000, guid: c12571a551dce41cd9b226f718dc665a, type: 2}
+  - {fileID: 11400000, guid: bb34de99a2bef441b927f31dd31f17f4, type: 2}
+  <IsUnlocked>k__BackingField: 1

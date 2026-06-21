@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7776f37f5a8340a6a7f67b2a7410f13, type: 3}
+  m_Name: Pumpkin
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory.Item.FoodObject
+  Id: 1
+  uiDisplay: {fileID: 3419499096422507311, guid: 260e5d1ed440342f1b414439e1f19f08, type: 3}
+  Name: Pumpkin
+  Description: 
+  MaxStack: 0
+  Category: 4
+  ItemAttributesConfig:
+  - Attributes: 4
+    value: 10
+    min: 10
+    max: 10

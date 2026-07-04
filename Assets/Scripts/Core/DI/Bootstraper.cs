@@ -11,13 +11,10 @@ using Zenject;                       // нужен для MonoInstaller
 // MonoInstaller — специальный класс Zenject
 // Вешается на SceneContext объект в Unity
 // InstallBindings() — регистрируем все зависимости один раз при старте
-// После этого Zenject сам создаёт нужные объекты и передаёт зависимости
+// Главный файл сборки. Говорит Zenject кто что получает.
+// Без него ничего не работает — все зависимости регистрируются здесь один раз при старте.
 public class Bootstraper : MonoInstaller
 {
-    // ScriptableObject который нельзя найти через FindObjectOfType (он не на сцене)
-    // Назначается вручную в инспекторе
-    [SerializeField] private TileMetadataRegistry _tileMetadataRegistry;
-
     // Здесь регистрируем всё что Zenject должен знать
     public override void InstallBindings()
     {
@@ -99,4 +96,6 @@ public class Bootstraper : MonoInstaller
             .FromComponentInHierarchy()
             .AsSingle();
     }
+
+    public ScriptableObject _tileMetadataRegistry { get; }
 }

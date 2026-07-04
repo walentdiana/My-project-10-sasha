@@ -32,7 +32,7 @@ namespace BuildSystem
         }
 
         // Устанавливает активный тайл — вызывается когда игрок выбрал предмет из инвентаря
-        public void SetActiveTile(BuildTileData data, TilemapLayerType layerType)
+        public void SetActiveTile(BuildTileData data, FlagsTilemapLayerType layerType)
         {
             _activeTile = data;                             // запоминаем тайл
             _activeTilemap = _layerRegistry.GetLayer(layerType); // находим нужный тайлмап
@@ -41,7 +41,7 @@ namespace BuildSystem
         }
 
         // Временный тайл при наведении мыши на кнопку в палитре
-        public void PreviewTile(BuildTileData data, TilemapLayerType layerType)
+        public void PreviewTile(BuildTileData data, FlagsTilemapLayerType layerType)
         {
             _previewTile = data;
             _previewTilemap = _layerRegistry.GetLayer(layerType);

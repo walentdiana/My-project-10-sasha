@@ -13,7 +13,7 @@ namespace BuildSystem
             GameObject obj,          // GameObject кнопки
             BuildTileData tileData,  // данные тайла
             int paletteId,           // ID палитры
-            TilemapLayerType layerType, // тип слоя
+            FlagsTilemapLayerType layerType, // тип слоя
             PaletteUIManager ui)     // UI менеджер который получит события
         {
             // _ => — лямбда которая игнорирует параметр (BaseEventData нам не нужен)

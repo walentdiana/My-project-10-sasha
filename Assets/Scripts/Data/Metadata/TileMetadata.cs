@@ -17,10 +17,10 @@ namespace Data.Metadata
     [CreateAssetMenu(fileName = "TileMetadata", menuName = "Build System/Tile Metadata")]
     public class TileMetadata : ScriptableObject
     {
-        public TilemapLayerType SourceLayer;      // на каком слое ищем этот тайл
+        public FlagsTilemapLayerType SourceLayer;      // на каком слое ищем этот тайл
         public ToolCapability RequiredCapability; // какой инструмент нужен (лопата=Till, топор=Chop)
         public TileBase ResultTile;              // во что превращается тайл после взаимодействия
-        public TilemapLayerType ResultLayer;     // на каком слое размещается результат
+        public FlagsTilemapLayerType ResultLayer;     // на каком слое размещается результат
 
         // Система времени — тайл меняется сам через некоторое время
         // Пример: политая грядка → через 10 секунд → сухая грядка

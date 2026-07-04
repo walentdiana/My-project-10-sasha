@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9574e6285079414ba4d521cb8b1ad15, type: 3}
-  m_Name: New Inventory
+  m_Name: DynamicInventory
   m_EditorClassIdentifier: Assembly-CSharp::Inventory.Container.InventoryObject
-  database: {fileID: 0}
+  database: {fileID: 11400000, guid: c58f294b5473841489921dc00fe531c0, type: 2}
   Container:
     Items:
     - AllowedItems: 
@@ -117,14 +117,14 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 
       AllowedCategories: 0
-      ID: -1
+      ID: 1
       item:
-        Id: 0
-        Name: 
-        MaxStack: 0
+        Id: 1
+        Name: pumpkin
+        MaxStack: 10
         ItemAttributesConfig: []
-        <Source>k__BackingField: {fileID: 0}
-      amount: 0
+        <Source>k__BackingField: {fileID: 11400000, guid: 50f196979bc8e47309ea3ee8d7f690a1, type: 2}
+      amount: 2
     - AllowedItems: 
       AllowedCategories: 0
       ID: -1

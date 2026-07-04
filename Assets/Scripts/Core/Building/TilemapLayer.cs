@@ -7,10 +7,14 @@ using Zenject;       // нужен для [Inject]
 
 // [RequireComponent] — Unity автоматически добавит Tilemap если его нет на объекте
 [RequireComponent(typeof(Tilemap))]
-public class TilemapLayer : MonoBehaviour
+
+/*Вешается на каждый тайлмап на сцене. При старте регистрирует себя в реестре: "я слой Fence," +
+    " вот мой Tilemap". Больше ничего не делает.*/
+
+public class TilemapLayer : MonoBehaviour 
 {
     // Тип этого слоя — назначается в инспекторе (Ground? Garden? Buildings?)
-    public TilemapLayerType LayerType;
+    public FlagsTilemapLayerType LayerType;
 
     private TilemapLayerRegistry _layerRegistry; // реестр всех слоёв — придёт через Zenject
 

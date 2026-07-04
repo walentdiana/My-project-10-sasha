@@ -15,7 +15,7 @@ namespace BuildSystem
 
         [field: SerializeField] public string PaletteName { get; private set; } // название ("Fences", "Gardens")
 
-        [field: SerializeField] public TilemapLayerType LayerType { get; private set; } // на каком слое рисовать
+        [field: SerializeField] public FlagsTilemapLayerType LayerType { get; private set; } // на каком слое рисовать
 
         [field: SerializeField] public BuildTileData[] Tiles { get; private set; } // массив тайлов этой палитры
 

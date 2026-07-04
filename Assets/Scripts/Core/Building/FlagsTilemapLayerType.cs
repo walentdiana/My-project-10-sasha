@@ -3,7 +3,7 @@ namespace BuildSystem
     // Перечисление типов слоёв тайлмапа
     // Каждый слой — отдельный Tilemap объект на сцене
     // Числа важны: TileMetadataRegistry сортирует по ним (чем больше — приоритетнее)
-    public enum TilemapLayerType
+    public enum FlagsTilemapLayerType
     {
         Ground    = 0, // земля, трава — самый нижний слой
         Soil      = 1, // почва, перекопанная земля

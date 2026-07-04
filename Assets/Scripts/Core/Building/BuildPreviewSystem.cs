@@ -6,7 +6,6 @@ namespace BuildSystem
 {
     // Управляет превью тайла под курсором
     // Зелёный = можно поставить, Красный = клетка занята
-    // MonoBehaviour — вешается на GameObject с Tilemap для превью
     public class BuildPreviewSystem : MonoBehaviour
     {
         [Header("References")] // заголовок в инспекторе для красоты

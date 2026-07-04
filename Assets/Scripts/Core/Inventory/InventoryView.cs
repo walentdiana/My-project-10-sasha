@@ -4,9 +4,8 @@ using UnityEngine.UI;       // нужен для Image (иконки предм�
 
 namespace Inventory.Core
 {
-    // abstract — нельзя создать напрямую, только через наследников
-    // MonoBehaviour — вешается на GameObject на сцене
-    // Базовый класс для всех видов инвентаря — содержит drag-and-drop логику
+    // Базовый класс для любого UI инвентаря.
+    // Содержит логику drag-and-drop. Сам по себе не используется — только через наследников.
     public abstract class InventoryView : MonoBehaviour
     {
         public InventoryObject inventory; // ScriptableObject с данными инвентаря

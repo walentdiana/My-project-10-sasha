@@ -59,7 +59,7 @@ namespace BuildSystem
         }
 
         // Мышь навела на кнопку тайла → показываем превью этого тайла
-        public void OnEnter(BuildTileData tileData, int paletteId, TilemapLayerType layerType)
+        public void OnEnter(BuildTileData tileData, int paletteId, FlagsTilemapLayerType layerType)
         {
             _painter.PreviewTile(tileData, layerType); // говорим TilePainter показать превью
         }
@@ -71,7 +71,7 @@ namespace BuildSystem
         }
 
         // Кликнули на кнопку → выбрали этот тайл как активный
-        public void OnSelect(BuildTileData tileData, int paletteId, TilemapLayerType layerType)
+        public void OnSelect(BuildTileData tileData, int paletteId, FlagsTilemapLayerType layerType)
         {
             _painter.SetActiveTile(tileData, layerType); // устанавливаем активный тайл
             SetVisible(false);                            // закрываем панель после выбора

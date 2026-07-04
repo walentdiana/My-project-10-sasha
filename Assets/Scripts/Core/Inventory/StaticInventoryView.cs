@@ -5,10 +5,8 @@ using UnityEngine;         // Unity
 
 namespace Inventory.Core
 {
-    // Хотбар — панель быстрого доступа внизу экрана
-    // Наследует InventoryView — получает drag-and-drop бесплатно
-    // IInventorySelectionSource — интерфейс: "я умею сообщать о выборе предмета"
-    // BuildModeController и ToolModeController подписываются на OnItemSelected
+    // Панель быстрого доступа внизу экрана.
+    // Слоты заранее созданы на сцене. Когда игрок кликает на предмет — кричит событием "выбран этот предмет".
     public class StaticInventoryView : InventoryView, IInventorySelectionSource
     {
         // Массив готовых GameObject-ов слотов — назначается в инспекторе

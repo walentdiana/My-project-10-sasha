@@ -3,12 +3,13 @@ using Core.ToolMode;       // нужен для IInventorySelectionSource
 using Inventory.Container; // нужен для InventorySlot
 using Inventory.Item;      // нужен для IBuildable
 using UnityEngine;         // нужен для KeyCode, Input
-using Zenject;             // нужен для IInitializable, IDisposable, ITickable, [Inject]
+using Zenject;            
 
 namespace BuildSystem
 {
-    // Интерфейс: "у меня есть IsActive, CurrentPalette и Deactivate()"
-    // Другие классы могут зависеть от этого интерфейса вместо конкретного класса
+    /*Главный по режиму строительства. Включает и выключает режим, следит за активной палитрой,
+        реагирует на R и Escape. Сам ничего не рисует — только командует.*/
+    
     public interface IBuildModeController
     {
         bool IsActive { get; }              // активен ли режим строительства

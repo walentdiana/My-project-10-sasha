@@ -1,10 +1,9 @@
-using UnityEngine; // Unity
+using UnityEngine;
 
 namespace BuildSystem
 {
-    // Конвертирует позицию мыши в координаты тайла
-    // MonoBehaviour — вешается на GameObject на сцене
-    // Используется TilePainter и ToolModeController
+    // Переводит позицию мыши на экране в координаты клетки тайлмапа.
+    // Как переводчик — берёт "мышь на пикселе 340,200" и говорит "это клетка (3, -2)"
     public class BuildInputHandler : MonoBehaviour
     {
         [SerializeField] private Camera _camera; // камера сцены (назначается в инспекторе)

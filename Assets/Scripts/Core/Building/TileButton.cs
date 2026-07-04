@@ -4,7 +4,7 @@ using UnityEngine.UI;        // нужен для Image
 
 namespace BuildSystem
 {
-    // Кнопка одного тайла в палитре строительства
+    // Кнопка одного тайла в  палитре строительства
     // Аналог InventorySlotView — только визуал, никакой логики
     // Логику кликов вешает TileEventBinder снаружи
     // [RequireComponent] — Unity добавит EventTrigger если его нет

@@ -13,10 +13,10 @@ namespace Core.Building
     {
         // readonly — нельзя заменить сам словарь после создания
         // new() — сокращение от new Dictionary<TilemapLayerType, Tilemap>()
-        private readonly Dictionary<TilemapLayerType, Tilemap> _layers = new();
+        private readonly Dictionary<FlagsTilemapLayerType, Tilemap> _layers = new();
 
         // Регистрирует тайлмап — вызывается каждым TilemapLayer при старте
-        public void Register(TilemapLayerType type, Tilemap tilemap)
+        public void Register(FlagsTilemapLayerType type, Tilemap tilemap)
         {
             if (_layers.ContainsKey(type)) // уже есть такой тип?
             {
@@ -30,12 +30,12 @@ namespace Core.Building
 
         // Безопасный поиск — возвращает false если не нашли (не бросает исключение)
         // out Tilemap tilemap — выходной параметр, заполняется если нашли
-        public bool TryGetLayer(TilemapLayerType type, out Tilemap tilemap)
+        public bool TryGetLayer(FlagsTilemapLayerType type, out Tilemap tilemap)
             => _layers.TryGetValue(type, out tilemap); // true = нашли, false = нет
 
         // Небезопасный поиск — бросает ошибку в консоль если нет
         // Используется когда слой ТОЧНО должен быть (TilePainter)
-        public Tilemap GetLayer(TilemapLayerType type)
+        public Tilemap GetLayer(FlagsTilemapLayerType type)
         {
             if (_layers.TryGetValue(type, out var tilemap))
                 return tilemap; // нашли — возвращаем

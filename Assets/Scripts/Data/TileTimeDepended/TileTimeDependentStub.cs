@@ -9,10 +9,10 @@ namespace BuildSystem.TileTimeDependent
     public interface ITileTimeDependent
     {
         // Зарегистрировать тайл: "этот тайл в клетке cell должен измениться через metadata.TimeToNextState секунд"
-        void RegisterTimedTile(Vector3Int cell, TilemapLayerType layer, TileMetadata metadata);
+        void RegisterTimedTile(Vector3Int cell, FlagsTilemapLayerType layer, TileMetadata metadata);
 
         // Убрать регистрацию тайла (например тайл уже изменился или убран)
-        void UnregisterTimedTile(Vector3Int cell, TilemapLayerType layer);
+        void UnregisterTimedTile(Vector3Int cell, FlagsTilemapLayerType layer);
     }
 
     // Заглушка — пустая реализация интерфейса
@@ -21,13 +21,13 @@ namespace BuildSystem.TileTimeDependent
     public class TileTimeDependentStub : ITileTimeDependent
     {
         // Должна регистрировать тайл для изменения — пока ничего не делает
-        public void RegisterTimedTile(Vector3Int cell, TilemapLayerType layer, TileMetadata metadata)
+        public void RegisterTimedTile(Vector3Int cell, FlagsTilemapLayerType layer, TileMetadata metadata)
         {
             // TODO: система времени — запустить таймер для этого тайла
         }
 
         // Должна отменять регистрацию — пока ничего не делает
-        public void UnregisterTimedTile(Vector3Int cell, TilemapLayerType layer)
+        public void UnregisterTimedTile(Vector3Int cell, FlagsTilemapLayerType layer)
         {
             // TODO: система времени — остановить таймер для этого тайла
         }

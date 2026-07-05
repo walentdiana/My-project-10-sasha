@@ -10,6 +10,12 @@ namespace Inventory.Core
 
         private bool _isOpen; // открыт ли инвентарь сейчас
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.I))
+                Toggle();
+        }
+        
         // Открывает инвентарь
         public void Open()
         {

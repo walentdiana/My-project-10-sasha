@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9574e6285079414ba4d521cb8b1ad15, type: 3}
-  m_Name: StativInventory
+  m_Name: StaticInventory
   m_EditorClassIdentifier: Assembly-CSharp::Inventory.Container.InventoryObject
   database: {fileID: 11400000, guid: c58f294b5473841489921dc00fe531c0, type: 2}
   Container:
@@ -20,31 +20,41 @@ MonoBehaviour:
       ID: 1
       item:
         Id: 1
-        Name: Pumpkin
-        MaxStack: 10
+        Name: 
+        MaxStack: 100
         ItemAttributesConfig: []
-        <Source>k__BackingField: {fileID: 11400000, guid: 50f196979bc8e47309ea3ee8d7f690a1, type: 2}
-      amount: 2
+        <Source>k__BackingField: {fileID: 11400000, guid: 62be1936e2e2f4963aa3316b5cd15c72, type: 2}
+      amount: 46
     - AllowedItems: 
       AllowedCategories: 0
       ID: 2
       item:
         Id: 2
-        Name: Fence
-        MaxStack: 20
-        ItemAttributesConfig: []
-        <Source>k__BackingField: {fileID: 11400000, guid: 62be1936e2e2f4963aa3316b5cd15c72, type: 2}
-      amount: 20
-    - AllowedItems: 
-      AllowedCategories: 0
-      ID: 3
-      item:
-        Id: 3
-        Name: Hoe
-        MaxStack: 1
+        Name: 
+        MaxStack: 2
         ItemAttributesConfig: []
         <Source>k__BackingField: {fileID: 11400000, guid: dba57fcfb95fe4cf286fb9ffd4cc4c7d, type: 2}
-      amount: 1
+      amount: 2
+    - AllowedItems: 
+      AllowedCategories: 0
+      ID: -1
+      item:
+        Id: 0
+        Name: 
+        MaxStack: 0
+        ItemAttributesConfig: []
+        <Source>k__BackingField: {fileID: 0}
+      amount: 0
+    - AllowedItems: 
+      AllowedCategories: 0
+      ID: -1
+      item:
+        Id: 0
+        Name: 
+        MaxStack: 0
+        ItemAttributesConfig: []
+        <Source>k__BackingField: {fileID: 0}
+      amount: 0
     - AllowedItems: 
       AllowedCategories: 0
       ID: -1

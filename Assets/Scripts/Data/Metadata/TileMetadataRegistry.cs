@@ -33,6 +33,7 @@ namespace Data.Metadata
         public void Initialize()
         {
             _cache = new Dictionary<TileBase, TileMetadata>(); // пустой словарь
+            Debug.Log($"TileMetadataRegistry.Initialize called, entries count: {_entries.Length}");
 
             foreach (var entry in _entries)
             {
@@ -43,6 +44,7 @@ namespace Data.Metadata
                     _cache[tile] = entry.Metadata; // тайл → метаданные
                 }
             }
+            Debug.Log($"Cache built, total tiles cached: {_cache.Count}");
 
             // Сортируем по убыванию приоритета слоя (Buildings=4 проверяется раньше Ground=0)
             // Чтобы тайл на верхнем слое не "перекрывался" тайлом на нижнем
@@ -65,9 +67,13 @@ namespace Data.Metadata
             {
                 // Получаем Tilemap для этого слоя
                 if (!layerRegistry.TryGetLayer(entry.Metadata.SourceLayer, out Tilemap layer))
+                {
+                    Debug.Log($"Layer {entry.Metadata.SourceLayer} not found in registry");
                     continue; // нет такого слоя — пропускаем
+                }
 
                 TileBase tile = layer.GetTile(cell); // что стоит на этой клетке?
+                Debug.Log($"Checking layer {entry.Metadata.SourceLayer}: tile = {(tile ? tile.name : "null")}");
 
                 // Тайл есть И он есть в нашем словаре?
                 if (tile && _cache.TryGetValue(tile, out metadata))

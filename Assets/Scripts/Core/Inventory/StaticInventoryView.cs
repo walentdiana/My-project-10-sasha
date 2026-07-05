@@ -37,10 +37,10 @@ namespace Inventory.Core
         // Переопределяем реакцию на клик по ячейке
         public override void OnSlotClick(InventorySlot slot)
         {
-            if (slot.item == null) // ячейка пустая — ничего не делаем
+            if (slot.ID < 0)  // ячейка пустая — ничего не делаем
                 return;
-
-            // Уведомляем всех подписчиков что выбран этот предмет
+            
+        // Уведомляем всех подписчиков что выбран этот предмет
             // BuildModeController: "это IBuildable? включаем строительство"
             // ToolModeController:  "это ToolItemObject? включаем инструмент"
             OnItemSelected?.Invoke(slot);

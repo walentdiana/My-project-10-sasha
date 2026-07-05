@@ -16,6 +16,7 @@ using Zenject;                       // нужен для MonoInstaller
 public class Bootstraper : MonoInstaller
 {
     // Здесь регистрируем всё что Zenject должен знать
+    [SerializeField] private TileMetadataRegistry _tileMetadataRegistry;
     public override void InstallBindings()
     {
         // ============ ИНВЕНТАРЬ ============
@@ -97,5 +98,5 @@ public class Bootstraper : MonoInstaller
             .AsSingle();
     }
 
-    public ScriptableObject _tileMetadataRegistry { get; }
+    //public ScriptableObject _tileMetadataRegistry { get; }
 }

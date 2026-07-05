@@ -77,7 +77,11 @@ namespace BuildSystem
             // is not IBuildable — предмет не строительный? Игнорируем.
             // buildable — автоматически созданная переменная если проверка прошла
             if (slot.item?.Source is not IBuildable buildable)
+            {
+                if (IsActive)
+                    Deactivate(); // выбрали не строительный предмет — выходим из build mode
                 return;
+            }
 
             CurrentPalette = buildable.LinkedPalette; // запоминаем палитру предмета
             IsActive = true;                          // включаем режим

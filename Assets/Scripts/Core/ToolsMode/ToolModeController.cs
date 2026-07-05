@@ -63,7 +63,11 @@ namespace Core.ToolMode
         {
             // is not ToolItemObject — не инструмент? Игнорируем.
             if (slot.item?.Source is not ToolItemObject tool)
-                return;
+            { if (_isActive)
+                
+                    Deactivate(); // выбрали не инструмент — выходим из режима инструмента
+                    return;
+            }
 
             _activeTool = tool;                 // запоминаем инструмент
             _activeSlot = slot;                 // запоминаем слот
@@ -85,27 +89,38 @@ namespace Core.ToolMode
 
             // Мышь над UI (кнопкой инвентаря и т.д.) — не реагируем на клик
             if (EventSystem.current.IsPointerOverGameObject())
+            {
                 return;
+            }
 
             if (Input.GetMouseButtonDown(0)) // левая кнопка мыши
+            {
                 TryUseTool();
+            }
         }
 
         // Пробует применить инструмент к тайлу под курсором
         private void TryUseTool()
         {
             Vector3Int cell = _inputHandler.GetMouseCellPosition(); // клетка под мышью
+            Debug.Log($"Cell: {cell}");
 
             // Ищем метаданные для тайла в этой клетке
             // out TileMetadata metadata — выходной параметр: найденные метаданные
             if (!_metadataRegistry.TryGetMetadataAtCell(cell, _layerRegistry, out TileMetadata metadata))
+            {
+                Debug.Log("No metadata found for this tile");
                 return; // нет метаданных — этот тайл не интерактивный
+            }
 
             // Проверяем: наш инструмент умеет то что нужно этому тайлу?
             // & — побитовое И: есть ли общие флаги?
             // == 0 значит общих флагов нет — инструмент не подходит
             if ((metadata.RequiredCapability & _activeTool.Capabilities) == 0)
+            {
+                Debug.Log("Capability mismatch - tool can't use this tile");
                 return; // лопата не рубит деревья, топор не копает грядки
+            }
 
             ApplyTool(cell, metadata); // применяем инструмент
         }

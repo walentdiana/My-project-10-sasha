@@ -17,7 +17,7 @@ MonoBehaviour:
   Discription: 
   CraftingStationType: 1
   ItemResult: {fileID: 11400000, guid: dba57fcfb95fe4cf286fb9ffd4cc4c7d, type: 2}
-  ResultAmount: 0
+  ResultAmount: 1
   ItemIngredients:
   - Item: {fileID: 11400000, guid: 50f196979bc8e47309ea3ee8d7f690a1, type: 2}
     Amount: 2

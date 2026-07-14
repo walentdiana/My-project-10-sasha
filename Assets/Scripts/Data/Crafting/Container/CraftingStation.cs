@@ -9,8 +9,26 @@ namespace Data.Crafting.Container
     public class CraftingStation : ScriptableObject
     {
         public CraftingRecipeRegistry database;
-        public Recipe container;
+        public Recipe Container;
         public CraftingStationType stationType;
+
+        private void OnEnable()
+        {
+            if(Container.RecipeItems == null)
+                Container.Initialize();
+        }
+
+
+        private void Unlock(int recipeId)
+        {
+            if (!database.TryGetRecipe(recipeId, out var recipe))
+                return;
+            
+            if((recipe.CraftingStationType &  stationType) == 0)
+                return;
+            
+            Container.AddRecipe(new RecipeSlot(recipe, stationType));
+        }
     }
 
 
@@ -65,6 +83,7 @@ namespace Data.Crafting.Container
             if(value = bIsAvailable)
                 return;
             bIsAvailable = value;
+            OnIsAvailableChanged?.Invoke(value);
         }
     }
 }

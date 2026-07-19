@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f76524859614a159cfc1c160df2040f, type: 3}
   m_Name: Crafting Recipe Database
   m_EditorClassIdentifier: Assembly-CSharp::Data.Crafting.Container.CraftingRecipeRegistry
-  Recipe: []
+  Recipe:
+  - {fileID: 11400000, guid: ae08608a0a5734bcd8ba7830769847e7, type: 2}

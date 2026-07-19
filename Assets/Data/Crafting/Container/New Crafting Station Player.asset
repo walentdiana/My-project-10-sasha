@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6588f03676ce411fb20c74092a483b8b, type: 3}
   m_Name: New Crafting Station Player
   m_EditorClassIdentifier: Assembly-CSharp::Data.Crafting.Container.CraftingStation
-  registry: {fileID: 11400000, guid: 30fa2ec64d7654bada5fd33170843410, type: 2}
-  container:
+  database: {fileID: 11400000, guid: 30fa2ec64d7654bada5fd33170843410, type: 2}
+  Container:
     RecipeItems:
     - recipe: {fileID: 11400000, guid: ae08608a0a5734bcd8ba7830769847e7, type: 2}
       station: 1
+      bIsAvailable: 0
+  stationType: 1

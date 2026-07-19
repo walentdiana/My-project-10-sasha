@@ -27,7 +27,7 @@ namespace Data.Crafting.Container
             _recipes =  new Dictionary<int, CraftingRecipe>();
         }
 
-        public bool TryGetRecipe(int id, out CraftingRecipe recipe)
+        public bool TryGetRecipe(int id, out CraftingRecipe recipe)  //поиск рецепта 
         {
             return _recipes.TryGetValue(id, out recipe);
         }

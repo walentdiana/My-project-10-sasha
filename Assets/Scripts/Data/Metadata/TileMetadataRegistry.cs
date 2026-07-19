@@ -33,7 +33,6 @@ namespace Data.Metadata
         public void Initialize()
         {
             _cache = new Dictionary<TileBase, TileMetadata>(); // пустой словарь
-            Debug.Log($"TileMetadataRegistry.Initialize called, entries count: {_entries.Length}");
 
             foreach (var entry in _entries)
             {
@@ -44,7 +43,6 @@ namespace Data.Metadata
                     _cache[tile] = entry.Metadata; // тайл → метаданные
                 }
             }
-            Debug.Log($"Cache built, total tiles cached: {_cache.Count}");
 
             // Сортируем по убыванию приоритета слоя (Buildings=4 проверяется раньше Ground=0)
             // Чтобы тайл на верхнем слое не "перекрывался" тайлом на нижнем

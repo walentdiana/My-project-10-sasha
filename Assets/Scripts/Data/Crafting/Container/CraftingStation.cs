@@ -19,7 +19,7 @@ namespace Data.Crafting.Container
         }
 
 
-        private void Unlock(int recipeId)
+        private void UnlockRecipe(int recipeId)
         {
             if (!database.TryGetRecipe(recipeId, out var recipe)) //Ищем рецепт в базе по id. Не нашли — выходим.
                 return;
@@ -37,7 +37,7 @@ namespace Data.Crafting.Container
     {
         public List<RecipeSlot> RecipeItems; //хранит все доступные рецепты для конкретной станции
 
-        [field:SerializeField] public event Action<RecipeSlot> OnRecipeAdded; //Событие, что рецепт добавлен
+        //[field:SerializeField] public event Action<RecipeSlot> OnRecipeAdded; //Событие, что рецепт добавлен
         
         public void Initialize()
         {
@@ -48,9 +48,15 @@ namespace Data.Crafting.Container
         {
             if(RecipeItems.Contains(recipe))
                 return;
+
+            foreach (var existing in RecipeItems)
+            {
+                if(existing.recipe.Id == recipe.recipe.Id)
+                    return;
+            }
             
             RecipeItems.Add(recipe);
-            OnRecipeAdded?.Invoke(recipe);
+            //OnRecipeAdded?.Invoke(recipe);
         }
     }
 

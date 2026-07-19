@@ -17,34 +17,34 @@ MonoBehaviour:
     Items:
     - AllowedItems: 
       AllowedCategories: 0
-      ID: -1
+      ID: 2
       item:
-        Id: 0
-        Name: 
-        MaxStack: 0
+        Id: 2
+        Name: hoe
+        MaxStack: 1
         ItemAttributesConfig: []
-        <Source>k__BackingField: {fileID: 0}
-      amount: 0
+        <Source>k__BackingField: {fileID: 11400000, guid: dba57fcfb95fe4cf286fb9ffd4cc4c7d, type: 2}
+      amount: 1
     - AllowedItems: 
       AllowedCategories: 0
-      ID: -1
+      ID: 1
       item:
-        Id: 0
+        Id: 1
         Name: 
         MaxStack: 0
         ItemAttributesConfig: []
-        <Source>k__BackingField: {fileID: 0}
-      amount: 0
+        <Source>k__BackingField: {fileID: 11400000, guid: 62be1936e2e2f4963aa3316b5cd15c72, type: 2}
+      amount: 20
     - AllowedItems: 
       AllowedCategories: 0
-      ID: -1
+      ID: 2
       item:
-        Id: 0
-        Name: 
-        MaxStack: 0
+        Id: 2
+        Name: hoe
+        MaxStack: 1
         ItemAttributesConfig: []
-        <Source>k__BackingField: {fileID: 0}
-      amount: 0
+        <Source>k__BackingField: {fileID: 11400000, guid: dba57fcfb95fe4cf286fb9ffd4cc4c7d, type: 2}
+      amount: 1
     - AllowedItems: 
       AllowedCategories: 0
       ID: -1

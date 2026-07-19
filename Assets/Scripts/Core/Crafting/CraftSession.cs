@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Data.Crafting;
 using Data.Crafting.Container;
 using Inventory.Container;
@@ -9,6 +10,7 @@ namespace Core.Crafting
     {
         private readonly CraftingStation _station;
         private readonly  InventoryObject _inventory;
+        private readonly Dictionary<int, int> _itemCounts = new();
 
         public CraftSession(CraftingStation station, InventoryObject inventory)  //если класс не монобез и не so, то передать параметры моем только через конструктор 
         {
@@ -16,42 +18,37 @@ namespace Core.Crafting
             _inventory = inventory;
         }
 
-        public void Start()
+        public void CalculateItem()
         {
+            _itemCounts.Clear();
             foreach (var slot in _inventory.Container.Items)
-                slot.OnChanged += RecalculateAll;
-
-            _station.Container.OnRecipeAdded += OnResipeAdded;
-            RecalculateAll();
+            {
+                if(slot.ID < 0)
+                    continue;
+                
+                _itemCounts[slot.item.Id] = _itemCounts.GetValueOrDefault(slot.item.Id) + slot.amount;
+                CalculateRecipe();
+            }
+            
         }
 
-        public void Stop()
+        private void CalculateRecipe()
         {
-            foreach (var slot in _inventory.Container.Items)
-                slot.OnChanged -= RecalculateAll;
-
-            _station.Container.OnRecipeAdded -= OnResipeAdded;
+            foreach (var recipeSlot in _station.Container.RecipeItems)
+                recipeSlot.SetAvailable(CanCraft(recipeSlot));
         }
 
-        public bool CanCraft(RecipeSlot slot)
+        public bool CanCraft(RecipeSlot slot, int craftingAmount = 1)
         {
             foreach (var ingredient in slot.recipe.ItemIngredients)
-                if(!IsSatisfied(ingredient))
+            {
+                if (_itemCounts.GetValueOrDefault(ingredient.Item.Id) < ingredient.Amount * craftingAmount) 
                     return false;
+            }
             
             return true;
         }
-
-        private bool IsSatisfied(CraftingIngredients ingredient) //Проверяет один конкретный ингредиент:
-        {
-            int total = 0;
-
-            foreach (var invSlot in _inventory.Container.Items)
-                if (invSlot.item != null && invSlot.item.Id == ingredient.Item.Id)
-                    total += invSlot.amount;
-
-            return total >= ingredient.Amount;
-        }
+        
 
         private void OnResipeAdded(RecipeSlot slot)
         {
@@ -64,30 +61,44 @@ namespace Core.Crafting
                 slot.SetAvailable(CanCraft(slot));
         }
 
-        public bool Craf(RecipeSlot slot)
+        public void RecalculateCurrentRecipe(RecipeSlot slot, int value) //пересчет одного конкретного реыепта
         {
-            if(!CanCraft(slot))
-                return false;
+            slot.SetAvailable(CanCraft(slot, value));
+        }
+        
+        public int GetItemCount(int itemId) => _itemCounts.GetValueOrDefault(itemId);
 
-            foreach (var ingredient in slot.recipe.ItemIngredients)
-                ConsumeItem(ingredient);
+        public bool Craft(RecipeSlot slot, int value)
+        {
+           if (!CanCraft(slot))
+               return false;
 
-            var resultItem = slot.recipe.ItemResult.CreateItem();
-            _inventory.AddItem(resultItem, slot.recipe.ResultAmount);
-            return true;
+           foreach (var ingredient in slot.recipe.ItemIngredients)
+           {
+               int ingredientAmount = ingredient.Amount * value;
+               ConsumeItem(ingredient.Item.Id, ingredientAmount);
+               _itemCounts[ingredient.Item.Id] -= ingredientAmount;
+           }
+
+           var result = slot.recipe.ItemResult.CreateItem();
+           int resultAmount = slot.recipe.ResultAmount * value;
+           _inventory.AddItem(result,resultAmount);
+           _itemCounts[result.Id] = _itemCounts.GetValueOrDefault(result.Id) + resultAmount;
+           CalculateItem();
+           return true;
         }
         
 
-        private void ConsumeItem(CraftingIngredients ingredient) //при крафте удаляет предметы из инвентаря для крафта 
+        private void ConsumeItem(int itemId, int amount) //при крафте удаляет предметы из инвентаря для крафта 
         {
-            int remaining =  ingredient.Amount;
+            int remaining =  amount;
 
             foreach (var slot in _inventory.Container.Items)
             {
                 if (remaining < 0)
                     break;
                 
-                if (slot.item == null || slot.item.Id != ingredient.Item.Id)
+                if (slot.ID != itemId)
                     continue;
                 
                 int toRemove = Mathf.Min(slot.amount, remaining);

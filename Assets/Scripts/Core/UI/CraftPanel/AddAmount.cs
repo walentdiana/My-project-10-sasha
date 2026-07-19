@@ -17,12 +17,10 @@ namespace Core.UI.CraftPanel
 
         private void Awake()
         {
-            /*_slider = GetComponentInChildren<Slider>();
+            _slider = GetComponentInChildren<Slider>();
             _amountText = GetComponentInChildren<TMP_Text>();
             _addButton = transform.GetChild(2).GetComponentInChildren<Button>();
-            _removeButton = transform.GetChild(3).GetComponentInChildren<Button>();*/
-
-            _amountText.text = "0";
+            _removeButton = transform.GetChild(3).GetComponentInChildren<Button>();
         }
 
         private void OnEnable()
@@ -30,6 +28,8 @@ namespace Core.UI.CraftPanel
             _addButton.onClick.AddListener(IncreaseAmount);
             _removeButton.onClick.AddListener(DecreaseAmount);
             _slider.onValueChanged.AddListener(OnChangeSliderValue);
+            
+            _amountText.text = "" + _slider.value; 
         }
 
         private void OnDisable()

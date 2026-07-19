@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Data.Crafting.Container;
 using Inventory.Container;
@@ -14,25 +15,24 @@ namespace Core.Crafting.UI
         
         protected List<RecipeSlot> _slots;
         protected CraftSession _session;
-
+        
+        public event Action<RecipeSlot,CraftSession> OnRecipeSelected;
         public abstract void CreateSlots();
 
         private void Start()
         {
             _session = new CraftSession(Station, Inventory);
-            _session.Start();
+            _session.CalculateItem();
             CreateSlots();
         }
-
-        private void OnDestroy()
-        {
-            _session?.Stop();
-        }
+        
 
         public void OnSlotClicked(RecipeSlot slot)
         {
-            if (_session.CanCraft(slot))
-                _session.Craf(slot);
+            if(!slot.bIsAvailable)
+                return;
+            
+            OnRecipeSelected?.Invoke(slot,_session);
         }
     }
 }

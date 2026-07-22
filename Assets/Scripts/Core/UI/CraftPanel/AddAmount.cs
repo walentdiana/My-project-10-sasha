@@ -49,7 +49,7 @@ namespace Core.UI.CraftPanel
             _slider.value--;
         }
 
-        private void OnChangeSliderValue(float arg0)
+        private void OnChangeSliderValue(float arg1)
         {
             _amountText.text = "" + _slider.value;
             OnChangeItemValue?.Invoke();

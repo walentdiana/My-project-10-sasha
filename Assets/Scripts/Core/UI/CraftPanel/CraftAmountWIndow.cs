@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Core.Crafting;
 using Core.Crafting.UI;
 using Data.Crafting.Container;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ namespace Core.UI.CraftPanel
         [SerializeField] private GameObject _ingredientPrefab;
         [SerializeField] private Image _recipeImage;
         [SerializeField] private Button _craftConfirmButton;
+        [SerializeField] private TMP_Text _resultAmountText;
 
         private CraftSession _session;
         private RecipeSlot _slot;
@@ -73,6 +75,9 @@ namespace Core.UI.CraftPanel
 
                 _rows[i].Refresh(ingredient.Item.uiDisplay, required, available);
             }
+            
+            int resultAmount = _slot.recipe.ResultAmount * count;
+            _resultAmountText.text = $"{resultAmount}";
         }
 
         private void Confirm()

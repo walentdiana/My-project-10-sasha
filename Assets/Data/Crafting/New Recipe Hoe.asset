@@ -20,6 +20,6 @@ MonoBehaviour:
   ResultAmount: 1
   ItemIngredients:
   - Item: {fileID: 11400000, guid: 50f196979bc8e47309ea3ee8d7f690a1, type: 2}
-    Amount: 50
+    Amount: 2
   - Item: {fileID: 11400000, guid: 62be1936e2e2f4963aa3316b5cd15c72, type: 2}
-    Amount: 40
+    Amount: 2

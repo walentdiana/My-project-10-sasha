@@ -1460,6 +1460,7 @@ GameObject:
   - component: {fileID: 518628601}
   - component: {fileID: 518628600}
   - component: {fileID: 518628604}
+  - component: {fileID: 518628605}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1567,6 +1568,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory.Core.InventoryController
   _inventoryRoot: {fileID: 1817086553}
+--- !u!114 &518628605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518628599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bcf0dac360b47c29617eec17b26d473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Core.UI.CraftPanel.CraftAmountWIndow
+  _craftPanel: {fileID: 0}
+  _slider: {fileID: 0}
+  _ingredientsContainer: {fileID: 0}
+  _ingredientPrefab: {fileID: 0}
+  _recipeImage: {fileID: 0}
+  _craftConfirmButton: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -6746,6 +6765,7 @@ GameObject:
   - component: {fileID: 1746716894}
   - component: {fileID: 1746716893}
   - component: {fileID: 1746716896}
+  - component: {fileID: 1746716897}
   m_Layer: 5
   m_Name: RecipePanel
   m_TagString: Untagged
@@ -6839,6 +6859,30 @@ MonoBehaviour:
   SlotPrefab: {fileID: 38002576843633915, guid: 6e829a5b109fe46e28aaa91f01d80e8f, type: 3}
   database: {fileID: 11400000, guid: 30fa2ec64d7654bada5fd33170843410, type: 2}
   Station: {fileID: 11400000, guid: 6d9072f3a83bc434ea32fa33d8e0b3af, type: 2}
+--- !u!114 &1746716897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746716891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 30
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 100, y: 100}
+  m_Spacing: {x: 2, y: 2}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1001 &1769568857
 PrefabInstance:
   m_ObjectHideFlags: 0

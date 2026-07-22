@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Data.Crafting;
 using Data.Crafting.Container;
 using Inventory.Container;
 using UnityEngine;
@@ -50,7 +49,7 @@ namespace Core.Crafting
         }
         
 
-        private void OnResipeAdded(RecipeSlot slot)
+        private void OnRecipeAdded(RecipeSlot slot)
         {
            slot.SetAvailable(CanCraft(slot));
         }
@@ -61,12 +60,12 @@ namespace Core.Crafting
                 slot.SetAvailable(CanCraft(slot));
         }
 
-        public void RecalculateCurrentRecipe(RecipeSlot slot, int value) //пересчет одного конкретного реыепта
+        public void RecalculateCurrentRecipe(RecipeSlot slot, int value) //пересчет одного конкретного рецепта
         {
             slot.SetAvailable(CanCraft(slot, value));
         }
         
-        public int GetItemCount(int itemId) => _itemCounts.GetValueOrDefault(itemId);
+        public int GetItemCount(int itemId) => _itemCounts.GetValueOrDefault(itemId); //одает количество предметов по id item словаря
 
         public bool Craft(RecipeSlot slot, int value)
         {

@@ -68,7 +68,7 @@ namespace Data.Crafting.Container
         public CraftingStationType station;
         [HideInInspector]public bool bIsAvailable;
 
-        [field: SerializeField] public event Action<bool> OnIsAvailableChanged; //событие для UI: перекрасить кнопку рецепта в серый/цветной.
+        [field: NonSerialized] public event Action<bool> OnIsAvailableChanged; //событие для UI: перекрасить кнопку рецепта в серый/цветной.
 
         public RecipeSlot(CraftingRecipe recipe, CraftingStationType station)
         {

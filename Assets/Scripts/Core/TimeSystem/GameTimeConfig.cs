@@ -9,6 +9,7 @@ namespace Core.TimeSystem
         [SerializeField] private int _hourPerDay = 24;
         [SerializeField] private int _daysPerWeek = 7;
         [SerializeField] private int _weeksPerMonth = 4;
+        [SerializeField] private int _minutesPerHour = 60;
         
         [Header("Simulation speed")]
         [Tooltip("Реальных секунд на одну игровую минуту")]
@@ -26,7 +27,7 @@ namespace Core.TimeSystem
         public float RealSecondsPerGameMinutes => _realSecondsPerGameMinutes;
         public float StartHour => _startHour;
 
-        public int MinutesPerHour => 60;
+        public int MinutesPerHour => _minutesPerHour;
 
         public int MinutesPerDay => MinutesPerHour * _hourPerDay;
         public int MinutesPerWeek => MinutesPerDay * _daysPerWeek;

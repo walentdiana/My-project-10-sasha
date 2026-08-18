@@ -9,9 +9,11 @@ using Zenject;
 
 namespace Core.Harvestable
 {
-    [RequireComponent(typeof(SpriteRenderer), typeof(Collider2D))]
+    [RequireComponent(typeof(SpriteRenderer))]
     public class Harvestable : MonoBehaviour
     {
+        private const string REQUIRE_LAYER_NAME = "Harvestable";
+        
         [SerializeField] private ItemDatabaseObject _databaseObject;
         [SerializeField] private HarvestableData _data;
         [SerializeField] private int _entityId;
@@ -43,16 +45,15 @@ namespace Core.Harvestable
             _respawnSystem = respawnSystem;
             _timeService = timeService;
         }
-
-        private void Awake() => _respawnSystem.Register(this);
-
-        private void OnDestroy() => _respawnSystem.Unregister(_entityId);
-
-        private void Start() => _currentHP = _data.MaxHP;
         
+        private void Start()
+        {
+            _currentHP = _data.MaxHP;
+            EnsureCorrectLayer();
+        }
+
         public void Interact(ToolItemObject tool = null)
         {
-            if(_bIsDead) return;
             if(!CanHarvestWith(tool)) return;
         }
 
@@ -64,5 +65,33 @@ namespace Core.Harvestable
 
             return (tool.Capabilities & _data.RequiredCapability) != 0;
         }
+
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            EnsureCorrectLayer();
+        }
+        
+#endif
+        private void EnsureCorrectLayer()
+        {
+            int requiredLayer = LayerMask.NameToLayer(REQUIRE_LAYER_NAME);
+
+            if (requiredLayer < 0)
+            {
+                Debug.Log($"[Harvestable] Layer '{REQUIRE_LAYER_NAME}' Не существует.]");
+                return;
+            }
+            
+            if (gameObject.layer != requiredLayer)
+            {
+                Debug.Log($"[Harvestable] {name} : layer был'{LayerMask.LayerToName(gameObject.layer)}', " +
+                          $"теперь принудительно установлен в {REQUIRE_LAYER_NAME}.", context: this);
+                
+                gameObject.layer = requiredLayer;
+            } 
+        }
+        
+        
     }
 }
